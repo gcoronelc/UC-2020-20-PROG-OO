@@ -1,0 +1,9 @@
+Cancelar los cambios
+
+git checkout .
+
+
+Actualizar repositorio:
+
+git pull
+
