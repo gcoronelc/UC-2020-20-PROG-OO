@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="ViaExitos">
+  <ClassDiagramComponents>
+    <Class name="PagoDto" package="pe.ec.viaexitos.dto" visibility="public" xPosition="1204.0" yPosition="144.0">
+      <Fields>
+        <Field name="horasDia" type="int" visibility="private"/>
+        <Field name="dias" type="int" visibility="private"/>
+        <Field name="pagoHora" type="double" visibility="private"/>
+        <Field name="ingreso" type="double" visibility="private"/>
+        <Field name="renta" type="double" visibility="private"/>
+        <Field name="neto" type="double" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="getHorasDia" returnType="int" visibility="public"/>
+        <Method name="setHorasDia" returnType="void" visibility="public">
+          <Argument type="int" name="horasDia"/>
+        </Method>
+        <Method name="getDias" returnType="int" visibility="public"/>
+        <Method name="setDias" returnType="void" visibility="public">
+          <Argument type="int" name="dias"/>
+        </Method>
+        <Method name="getPagoHora" returnType="double" visibility="public"/>
+        <Method name="setPagoHora" returnType="void" visibility="public">
+          <Argument type="double" name="pagoHora"/>
+        </Method>
+        <Method name="getIngreso" returnType="double" visibility="public"/>
+        <Method name="setIngreso" returnType="void" visibility="public">
+          <Argument type="double" name="ingreso"/>
+        </Method>
+        <Method name="getRenta" returnType="double" visibility="public"/>
+        <Method name="setRenta" returnType="void" visibility="public">
+          <Argument type="double" name="renta"/>
+        </Method>
+        <Method name="getNeto" returnType="double" visibility="public"/>
+        <Method name="setNeto" returnType="void" visibility="public">
+          <Argument type="double" name="neto"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="PagoService" package="pe.ec.viaexitos.service" visibility="public" xPosition="1210.0" yPosition="754.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="procSalario" returnType="PagoDto" visibility="public">
+          <Argument type="PagoDto" name="dto"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Comunes" package="pe.ec.viaexitos.view" visibility="public" xPosition="797.0" yPosition="29.0">
+      <Fields>
+        <Field name="contador" type="int" visibility="private" isStatic="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="getSiguiente" returnType="int" visibility="public" isStatic="true"/>
+        <Method name="validarCajaTexto" returnType="void" visibility="public" isStatic="true">
+          <Argument type="JTextField" name="caja"/>
+          <Argument type="String" name="mensaje"/>
+        </Method>
+        <Method name="validarEntero" returnType="void" visibility="public" isStatic="true">
+          <Argument type="JTextField" name="caja"/>
+          <Argument type="String" name="mensaje"/>
+        </Method>
+        <Method name="validarDecimal" returnType="void" visibility="public" isStatic="true">
+          <Argument type="JTextField" name="caja"/>
+          <Argument type="String" name="mensaje"/>
+        </Method>
+        <Method name="isNumeric" returnType="boolean" visibility="public" isStatic="true">
+          <Argument type="String" name="cadena"/>
+        </Method>
+        <Method name="isDecimal" returnType="boolean" visibility="public" isStatic="true">
+          <Argument type="String" name="cadena"/>
+        </Method>
+        <Method name="formato" returnType="String" visibility="public" isStatic="true">
+          <Argument type="double" name="numero"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="PagoView" package="pe.ec.viaexitos.view" visibility="public" xPosition="53.0" yPosition="292.0">
+      <Fields>
+        <Field name="pagoService" type="PagoService" visibility="private"/>
+        <Field name="btnNuevo" type="javax.swing.JButton" visibility="private"/>
+        <Field name="btnProcesar" type="javax.swing.JButton" visibility="private"/>
+        <Field name="btnSalir" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jLabel1" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel2" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel3" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel4" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel5" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel6" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel7" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jPanel1" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jPanel2" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jPanel3" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="lblTitulo" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="txtDias" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="txtHoras" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="txtPagoHoras" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="txtRenta" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="txtSalario" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="txtTotal" type="javax.swing.JTextField" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="establecerContador" returnType="void" visibility="private"/>
+        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents void" visibility="private"/>
+        <Method name="btnProcesarActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="btnNuevoActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="btnSalirActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="procesarDatos" returnType="void" visibility="public"/>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <UseRelation source="pe.ec.viaexitos.service.PagoService" target="pe.ec.viaexitos.dto.PagoDto" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation name="" source="pe.ec.viaexitos.view.PagoView" target="pe.ec.viaexitos.view.Comunes" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation name="" source="pe.ec.viaexitos.view.PagoView" target="pe.ec.viaexitos.dto.PagoDto" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="" source="pe.ec.viaexitos.view.PagoView" target="pe.ec.viaexitos.service.PagoService" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
