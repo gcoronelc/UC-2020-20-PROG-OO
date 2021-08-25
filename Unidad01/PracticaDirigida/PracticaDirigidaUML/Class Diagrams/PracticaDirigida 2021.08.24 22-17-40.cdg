@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="PracticaDirigida">
+  <ClassDiagramComponents>
+    <Class name="Administrativo" package="pe.edu.continental.practicadirigida.model" visibility="public" xPosition="56.0" yPosition="180.0">
+      <Fields>
+        <Field name="cargo" type="String" visibility="private"/>
+        <Field name="horasExtras" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="getCargo" returnType="String" visibility="public"/>
+        <Method name="setCargo" returnType="void" visibility="public">
+          <Argument type="String" name="cargo"/>
+        </Method>
+        <Method name="getHorasExtras" returnType="int" visibility="public"/>
+        <Method name="setHorasExtras" returnType="void" visibility="public">
+          <Argument type="int" name="horasExtras"/>
+        </Method>
+        <Method name="getSueldo" returnType="double" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Docente" package="pe.edu.continental.practicadirigida.model" visibility="public" isAbstract="true" xPosition="832.0" yPosition="194.0">
+      <Fields>
+        <Field name="grado" type="String" visibility="private"/>
+        <Field name="investiga" type="boolean" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="getGrado" returnType="String" visibility="public"/>
+        <Method name="setGrado" returnType="void" visibility="public">
+          <Argument type="String" name="grado"/>
+        </Method>
+        <Method name="isInvestiga" returnType="boolean" visibility="public"/>
+        <Method name="setInvestiga" returnType="void" visibility="public">
+          <Argument type="boolean" name="investiga"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="DocenteTiempoCompleto" package="pe.edu.continental.practicadirigida.model" visibility="public" xPosition="542.0" yPosition="558.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="getSueldo" returnType="double" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="DocenteTiempoParcial" package="pe.edu.continental.practicadirigida.model" visibility="public" xPosition="992.0" yPosition="558.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="getSueldo" returnType="double" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Personal" package="pe.edu.continental.practicadirigida.model" visibility="public" isAbstract="true" xPosition="409.0" yPosition="28.0">
+      <Fields>
+        <Field name="codigo" type="int" visibility="private"/>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="apellido" type="String" visibility="private"/>
+        <Field name="correo" type="String" visibility="private"/>
+        <Field name="telefono" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="getCodigo" returnType="int" visibility="public"/>
+        <Method name="setCodigo" returnType="void" visibility="public">
+          <Argument type="int" name="codigo"/>
+        </Method>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="setNombre" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="getApellido" returnType="String" visibility="public"/>
+        <Method name="setApellido" returnType="void" visibility="public">
+          <Argument type="String" name="apellido"/>
+        </Method>
+        <Method name="getCorreo" returnType="String" visibility="public"/>
+        <Method name="setCorreo" returnType="void" visibility="public">
+          <Argument type="String" name="correo"/>
+        </Method>
+        <Method name="getTelefono" returnType="String" visibility="public"/>
+        <Method name="setTelefono" returnType="void" visibility="public">
+          <Argument type="String" name="telefono"/>
+        </Method>
+        <Method name="getSueldo" returnType="double" visibility="public" isAbstract="true"/>
+      </Methods>
+    </Class>
+    <Class name="UniversidadService" package="pe.edu.continental.practicadirigida.service" visibility="public" xPosition="233.0" yPosition="781.0">
+      <Fields>
+        <Field name="administrativos" type="List&lt;Administrativo&gt;" visibility="private"/>
+        <Field name="docentesTiempoCompleto" type="List&lt;DocenteTiempoCompleto&gt;" visibility="private"/>
+        <Field name="docentesTiempoParcial" type="List&lt;DocenteTiempoParcial&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="getAdministrativos" returnType="List&lt;Administrativo&gt;" visibility="public"/>
+        <Method name="getDocentesTiempoCompleto" returnType="List&lt;DocenteTiempoCompleto&gt;" visibility="public"/>
+        <Method name="getDocentesTiempoParcial" returnType="List&lt;DocenteTiempoParcial&gt;" visibility="public"/>
+        <Method name="registrarAdministrativo" returnType="void" visibility="public">
+          <Argument type="Administrativo" name="bean"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <IsRelation name="is" source="pe.edu.continental.practicadirigida.model.Administrativo" target="pe.edu.continental.practicadirigida.model.Personal"/>
+    <IsRelation name="is" source="pe.edu.continental.practicadirigida.model.Docente" target="pe.edu.continental.practicadirigida.model.Personal"/>
+    <IsRelation name="is" source="pe.edu.continental.practicadirigida.model.DocenteTiempoParcial" target="pe.edu.continental.practicadirigida.model.Docente"/>
+    <HasRelation name="" source="pe.edu.continental.practicadirigida.service.UniversidadService" target="pe.edu.continental.practicadirigida.model.DocenteTiempoParcial" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;DocenteTiempoParcial&gt;"/>
+    <HasRelation name="" source="pe.edu.continental.practicadirigida.service.UniversidadService" target="pe.edu.continental.practicadirigida.model.DocenteTiempoCompleto" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;DocenteTiempoCompleto&gt;"/>
+    <UseRelation source="pe.edu.continental.practicadirigida.service.UniversidadService" target="pe.edu.continental.practicadirigida.model.DocenteTiempoParcial" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="pe.edu.continental.practicadirigida.model.DocenteTiempoCompleto" target="pe.edu.continental.practicadirigida.model.Docente"/>
+    <HasRelation name="" source="pe.edu.continental.practicadirigida.service.UniversidadService" target="pe.edu.continental.practicadirigida.model.Administrativo" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;Administrativo&gt;"/>
+    <UseRelation source="pe.edu.continental.practicadirigida.service.UniversidadService" target="pe.edu.continental.practicadirigida.model.DocenteTiempoCompleto" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="pe.edu.continental.practicadirigida.service.UniversidadService" target="pe.edu.continental.practicadirigida.model.Administrativo" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

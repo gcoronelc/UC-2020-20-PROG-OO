@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="pe.edu.continental.practicadirigida.model">
+  <ClassDiagramComponents>
+    <Class name="Administrativo" package="pe.edu.continental.practicadirigida.model" visibility="public" xPosition="571.0" yPosition="243.0">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Docente" package="pe.edu.continental.practicadirigida.model" visibility="public" isAbstract="true" xPosition="241.0" yPosition="234.0">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Personal" package="pe.edu.continental.practicadirigida.model" visibility="public" isAbstract="true" xPosition="413.0" yPosition="35.0">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <IsRelation name="is" source="pe.edu.continental.practicadirigida.model.Administrativo" target="pe.edu.continental.practicadirigida.model.Personal"/>
+    <IsRelation name="is" source="pe.edu.continental.practicadirigida.model.Docente" target="pe.edu.continental.practicadirigida.model.Personal"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

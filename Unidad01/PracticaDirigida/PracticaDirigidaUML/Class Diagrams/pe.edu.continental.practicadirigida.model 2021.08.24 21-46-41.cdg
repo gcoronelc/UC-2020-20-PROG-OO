@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="pe.edu.continental.practicadirigida.model">
+  <ClassDiagramComponents>
+    <Class name="Administrativo" package="pe.edu.continental.practicadirigida.model" visibility="public" xPosition="1053.0" yPosition="350.0">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Docente" package="pe.edu.continental.practicadirigida.model" visibility="public" isAbstract="true" xPosition="715.0" yPosition="350.0">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="DocenteTiempoCompleto" package="pe.edu.continental.practicadirigida.model" visibility="public" xPosition="556.0" yPosition="545.0">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="DocenteTiempoParcial" package="pe.edu.continental.practicadirigida.model" visibility="public" xPosition="861.0" yPosition="545.0">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Personal" package="pe.edu.continental.practicadirigida.model" visibility="public" isAbstract="true" xPosition="873.0" yPosition="131.0">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <IsRelation name="is" source="pe.edu.continental.practicadirigida.model.Administrativo" target="pe.edu.continental.practicadirigida.model.Personal"/>
+    <IsRelation name="is" source="pe.edu.continental.practicadirigida.model.DocenteTiempoParcial" target="pe.edu.continental.practicadirigida.model.Docente"/>
+    <IsRelation name="is" source="pe.edu.continental.practicadirigida.model.DocenteTiempoCompleto" target="pe.edu.continental.practicadirigida.model.Docente"/>
+    <IsRelation name="is" source="pe.edu.continental.practicadirigida.model.Docente" target="pe.edu.continental.practicadirigida.model.Personal"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
