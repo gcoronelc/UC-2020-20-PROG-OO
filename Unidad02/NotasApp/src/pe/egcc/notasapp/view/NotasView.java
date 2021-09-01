@@ -44,6 +44,7 @@ public class NotasView extends javax.swing.JFrame {
       jPanel2 = new javax.swing.JPanel();
       btnProcesar = new javax.swing.JButton();
       btnLimpiar = new javax.swing.JButton();
+      btnSalir = new javax.swing.JButton();
       jPanel3 = new javax.swing.JPanel();
       jLabel7 = new javax.swing.JLabel();
       txtPCE = new javax.swing.JTextField();
@@ -63,18 +64,22 @@ public class NotasView extends javax.swing.JFrame {
       jLabel1.setText("Practica calificada 1");
 
       txtPC1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+      txtPC1.setDisabledTextColor(new java.awt.Color(0, 102, 204));
 
       txtPC2.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+      txtPC2.setDisabledTextColor(new java.awt.Color(0, 102, 204));
 
       jLabel2.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
       jLabel2.setText("Practica calificada 2");
 
       txtPC3.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+      txtPC3.setDisabledTextColor(new java.awt.Color(0, 102, 204));
 
       jLabel3.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
       jLabel3.setText("Practica calificada 3");
 
       txtPC4.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+      txtPC4.setDisabledTextColor(new java.awt.Color(0, 102, 204));
 
       jLabel4.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
       jLabel4.setText("Practica calificada 4");
@@ -83,11 +88,13 @@ public class NotasView extends javax.swing.JFrame {
       jLabel5.setText("Examen Parcial");
 
       txtEP.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+      txtEP.setDisabledTextColor(new java.awt.Color(0, 102, 204));
 
       jLabel6.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
       jLabel6.setText("Examen Final");
 
       txtEF.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+      txtEF.setDisabledTextColor(new java.awt.Color(0, 102, 204));
 
       javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
       jPanel1.setLayout(jPanel1Layout);
@@ -170,6 +177,14 @@ public class NotasView extends javax.swing.JFrame {
          }
       });
 
+      btnSalir.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+      btnSalir.setText("Salir");
+      btnSalir.addActionListener(new java.awt.event.ActionListener() {
+         public void actionPerformed(java.awt.event.ActionEvent evt) {
+            btnSalirActionPerformed(evt);
+         }
+      });
+
       javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
       jPanel2.setLayout(jPanel2Layout);
       jPanel2Layout.setHorizontalGroup(
@@ -178,8 +193,9 @@ public class NotasView extends javax.swing.JFrame {
             .addContainerGap()
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                .addComponent(btnProcesar, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
-               .addComponent(btnLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+               .addComponent(btnLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
+               .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addContainerGap(20, Short.MAX_VALUE))
       );
       jPanel2Layout.setVerticalGroup(
          jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -188,6 +204,8 @@ public class NotasView extends javax.swing.JFrame {
             .addComponent(btnProcesar, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addComponent(btnLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
       );
 
@@ -198,25 +216,29 @@ public class NotasView extends javax.swing.JFrame {
 
       txtPCE.setEditable(false);
       txtPCE.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-      txtPCE.setDisabledTextColor(new java.awt.Color(0, 153, 204));
+      txtPCE.setDisabledTextColor(new java.awt.Color(0, 102, 204));
+      txtPCE.setEnabled(false);
 
       txtPP.setEditable(false);
       txtPP.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-      txtPP.setDisabledTextColor(new java.awt.Color(0, 153, 204));
+      txtPP.setDisabledTextColor(new java.awt.Color(0, 102, 204));
+      txtPP.setEnabled(false);
 
       jLabel8.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
       jLabel8.setText("Promedio de practicas");
 
       txtPF.setEditable(false);
       txtPF.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-      txtPF.setDisabledTextColor(new java.awt.Color(0, 153, 204));
+      txtPF.setDisabledTextColor(new java.awt.Color(0, 102, 204));
+      txtPF.setEnabled(false);
 
       jLabel9.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
       jLabel9.setText("Promedio final");
 
       txtEstado.setEditable(false);
       txtEstado.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-      txtEstado.setDisabledTextColor(new java.awt.Color(0, 153, 204));
+      txtEstado.setDisabledTextColor(new java.awt.Color(0, 102, 204));
+      txtEstado.setEnabled(false);
 
       jLabel10.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
       jLabel10.setText("Estado");
@@ -310,6 +332,8 @@ public class NotasView extends javax.swing.JFrame {
          txtPP.setText("" + dto.getPp());
          txtPF.setText("" + dto.getPf());
          txtEstado.setText("" + dto.getEstado());
+			// Estado del formulario
+			setEditForm( false );
       } catch (NotaFueraDeRango e) {
          JOptionPane.showMessageDialog(rootPane, e.getMessage(), 
                  "NOTAS - ERROR", JOptionPane.ERROR_MESSAGE);
@@ -333,7 +357,12 @@ public class NotasView extends javax.swing.JFrame {
       txtPP.setText("");
       txtPF.setText("");
       txtEstado.setText("");
+		setEditForm(true);
    }//GEN-LAST:event_btnLimpiarActionPerformed
+
+   private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+      System.exit(0);
+   }//GEN-LAST:event_btnSalirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -373,6 +402,7 @@ public class NotasView extends javax.swing.JFrame {
    // Variables declaration - do not modify//GEN-BEGIN:variables
    private javax.swing.JButton btnLimpiar;
    private javax.swing.JButton btnProcesar;
+   private javax.swing.JButton btnSalir;
    private javax.swing.JLabel jLabel1;
    private javax.swing.JLabel jLabel10;
    private javax.swing.JLabel jLabel2;
@@ -397,5 +427,19 @@ public class NotasView extends javax.swing.JFrame {
    private javax.swing.JTextField txtPF;
    private javax.swing.JTextField txtPP;
    // End of variables declaration//GEN-END:variables
+
+	private void setEditForm(boolean estado) {
+		txtPC1.setEnabled(estado);
+		txtPC2.setEnabled(estado);
+		txtPC3.setEnabled(estado);
+		txtPC4.setEnabled(estado);
+		txtEP.setEnabled(estado);
+		txtEF.setEnabled(estado);
+		btnProcesar.setEnabled(estado);
+		btnLimpiar.setEnabled(!estado);
+		if( estado ){
+			txtPC1.requestFocus();
+		}
+	}
 
 }
