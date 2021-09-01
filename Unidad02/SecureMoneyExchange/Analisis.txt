@@ -4,8 +4,8 @@ Definir las monedas con que se trabajara:
   - Dolares
   - Euros
 
-Servicios que brinda la empresa:
----------------------------------
+Definir los servicios que brinda la empresa:
+--------------------------------------------
   - Soles -> Dolares
   - Soles -> Euros 
   - Dolares -> Soles 
