@@ -1,7 +1,5 @@
 package pe.egcc.notasapp.prueba;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import pe.egcc.notasapp.dto.NotasDto;
 import pe.egcc.notasapp.excepcion.NotaFueraDeRango;
 import pe.egcc.notasapp.service.NotasService;

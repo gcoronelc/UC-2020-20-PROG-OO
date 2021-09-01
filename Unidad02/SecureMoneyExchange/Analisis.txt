@@ -1,0 +1,24 @@
+Definir las monedas con que se trabajara:
+-----------------------------------------
+  - Soles
+  - Dolares
+  - Euros
+
+Servicios que brinda la empresa:
+---------------------------------
+  - Soles -> Dolares
+  - Soles -> Euros 
+  - Dolares -> Soles 
+  - Euros - Soles 
+
+Prototipo de los servicios:
+------------------------------------------------
+public double solesToDolares( double soles );
+public double solesToEuros( double soles );
+public double dolaresToSoles( double dolares );
+public double eurosToSoles( double euros );
+
+
+
+
+
