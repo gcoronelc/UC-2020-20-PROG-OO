@@ -1,6 +1,4 @@
-package pe.moneyexchange;
-
-import pe.moneyexchange.view.MoneyView;
+package pe.moneyexchange.service;
 
 /**
  * @author Eric Gustavo Coronel Castillo
@@ -9,10 +7,8 @@ import pe.moneyexchange.view.MoneyView;
  * @youtube www.youtube.com/c/DesarrollaSoftware
  * @facebook www.facebook.com/groups/desarrollasoftware/
  */
-public class MoneyExchange {
+public interface LogonService {
 
-    public static void main(String[] args) {
-        MoneyView.main(args);
-    }
+	boolean validar(String usuario, String clave);
 
 }

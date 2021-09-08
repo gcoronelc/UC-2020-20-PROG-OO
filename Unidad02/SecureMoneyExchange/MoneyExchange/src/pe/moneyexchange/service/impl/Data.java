@@ -1,4 +1,4 @@
-package pe.moneyexchange.controller;
+package pe.moneyexchange.service.impl;
 
 /**
  * @author Eric Gustavo Coronel Castillo
@@ -7,6 +7,14 @@ package pe.moneyexchange.controller;
  * @youtube www.youtube.com/DesarrollaSoftware
  * @facebook www.facebook.com/groups/desarrollasoftware/
  */
-public class MoneyController {
+class Data {
+
+	private Data() {
+	}
+
+	final static double TC_DOLARES = 4.15;
+	final static double TC_EUROS = 4.83;
+	
+	static int saldo = 5000;
 
 }

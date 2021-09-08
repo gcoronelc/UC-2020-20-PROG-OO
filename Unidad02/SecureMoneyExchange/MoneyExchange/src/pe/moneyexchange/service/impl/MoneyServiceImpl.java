@@ -11,35 +11,39 @@ import pe.moneyexchange.service.MoneyService;
  */
 public class MoneyServiceImpl implements MoneyService {
 
-	private final double TC_DOLARES = 4.15;
-	private final double TC_EUROS = 4.83;
+
 
 	@Override
 	public double solesToDolares(double soles) {
 		double importe;
-		importe = soles / TC_DOLARES;
+		importe = soles / Data.TC_DOLARES;
 		return importe;
 	}
 
 	@Override
 	public double solesToEuros(double soles) {
 		double importe;
-		importe = soles / TC_EUROS;
+		importe = soles / Data.TC_EUROS;
 		return importe;
 	}
 
 	@Override
 	public double dolaresToSoles(double dolares) {
 		double importe;
-		importe = dolares * TC_DOLARES;
+		importe = dolares * Data.TC_DOLARES;
 		return importe;
 	}
 
 	@Override
 	public double eurosToSoles(double euros) {
 		double importe;
-		importe = euros * TC_EUROS;
+		importe = euros * Data.TC_EUROS;
 		return importe;
+	}
+
+	@Override
+	public int obtenerSaldo() {
+		return Data.saldo;
 	}
 
 }

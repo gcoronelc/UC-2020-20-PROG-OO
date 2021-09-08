@@ -1,6 +1,6 @@
-package pe.moneyexchange;
+package pe.ucont.smeapp;
 
-import pe.moneyexchange.view.MoneyView;
+import pe.ucont.smeapp.view.SMEView;
 
 /**
  * @author Eric Gustavo Coronel Castillo
@@ -9,10 +9,13 @@ import pe.moneyexchange.view.MoneyView;
  * @youtube www.youtube.com/c/DesarrollaSoftware
  * @facebook www.facebook.com/groups/desarrollasoftware/
  */
-public class MoneyExchange {
+public class SMEApp {
 
+    /**
+     * @param args the command line arguments
+     */
     public static void main(String[] args) {
-        MoneyView.main(args);
+        SMEView.main(args);
     }
 
 }

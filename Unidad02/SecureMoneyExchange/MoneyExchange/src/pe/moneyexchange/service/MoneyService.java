@@ -22,5 +22,7 @@ public interface MoneyService {
 	public double dolaresToSoles(double dolares);
 
 	public double eurosToSoles(double euros);
+	
+	public int obtenerSaldo();
 
 }
