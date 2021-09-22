@@ -1,0 +1,164 @@
+/**
+ *
+ * DBMS           :  ORACLE
+ * Esquema        :  UCPA3
+ * Descripción    :  Modelo de Base de Datos
+ * Script         :  Crea el esquema y sus respectivas tablas
+ * Creao por      :  Pedro, Javier, Laura y Delia.
+ * Fecha          :  21/09/2021
+ * 
+**/
+
+
+-- =============================================
+-- CRACIÓN DEL USUARIO
+-- =============================================
+
+DECLARE
+	N INT;
+	COMMAND VARCHAR2(200);
+BEGIN
+	COMMAND := 'DROP USER UCPA2 CASCADE';
+	SELECT COUNT(*) INTO N
+	FROM DBA_USERS
+	WHERE USERNAME = 'UCPA2';
+	IF ( N = 1 ) THEN
+		EXECUTE IMMEDIATE COMMAND;
+	END IF;
+END;
+/
+
+
+CREATE USER UCPA2 IDENTIFIED BY admin;
+
+GRANT CONNECT, RESOURCE TO UCPA2;
+
+ALTER USER UCPA2
+QUOTA UNLIMITED ON USERS;
+
+GRANT CREATE VIEW TO UCPA2;
+
+
+-- =============================================
+-- CONECTARSE A LA APLICACIÓN
+-- =============================================
+
+CONNECT UCPA2/admin
+
+
+
+-- ======================================================
+-- CREACIÓN DE TABLAS
+-- ======================================================
+
+CREATE TABLE CLIENTE
+(
+	IDCLIENTE            NUMBER(8) NOT NULL ,
+	NOMBRE               VARCHAR2(100) NOT NULL ,
+CONSTRAINT  XPKCLIENTE PRIMARY KEY (IDCLIENTE)
+);
+
+
+
+CREATE TABLE PRODUCTO
+(
+	IDPRODUCTO           NUMBER(8) NOT NULL ,
+	NOMBRE               VARCHAR2(100) NOT NULL ,
+	PRECIO               NUMBER(12,2) NOT NULL ,
+CONSTRAINT  XPKPRODUCTO PRIMARY KEY (IDPRODUCTO)
+);
+
+
+
+
+COMMENT ON COLUMN PRODUCTO.PRECIO IS 'Precio de lista.';
+
+
+
+CREATE TABLE VENTA
+(
+	IDVENTA              INTEGER NOT NULL ,
+	IDPRODUCTO           NUMBER(8) NOT NULL ,
+	IDCLIENTE            NUMBER(8) NOT NULL ,
+	FECHA                DATE NOT NULL ,
+	PRECIO               NUMBER(12,2) NOT NULL ,
+	CANTIDAD             NUMBER(5) NOT NULL ,
+	SUBTOTAL             NUMBER(12,2) NOT NULL ,
+	IMPUESTO             NUMBER(12,2) NULL ,
+	TOTAL                NUMBER(12,2) NOT NULL ,
+CONSTRAINT  XPKVENTA PRIMARY KEY (IDVENTA),
+CONSTRAINT FK_VENTA_CLIENTE FOREIGN KEY (IDCLIENTE) REFERENCES CLIENTE (IDCLIENTE),
+CONSTRAINT FK_VENTA_PRODUCTO FOREIGN KEY (IDPRODUCTO) REFERENCES PRODUCTO (IDPRODUCTO)
+);
+
+
+
+
+COMMENT ON COLUMN VENTA.PRECIO IS 'Precio de venta.';
+
+
+-- ======================================================
+-- SECUENCIAS
+-- ======================================================
+
+
+CREATE SEQUENCE SQ_PRODUCTO INCREMENT BY 1 START WITH 1001;
+CREATE SEQUENCE SQ_CLIENTE INCREMENT BY 1 START WITH 1001;
+CREATE SEQUENCE SQ_VENTA INCREMENT BY 1 START WITH 1001;
+
+
+-- ======================================================
+-- CARGA DATOS
+-- ======================================================
+
+
+-- PRODUCTO
+
+INSERT INTO PRODUCTO(IDPRODUCTO,NOMBRE,PRECIO) VALUES(SQ_PRODUCTO.NEXTVAL,'TELEVISOR',4500);
+INSERT INTO PRODUCTO(IDPRODUCTO,NOMBRE,PRECIO) VALUES(SQ_PRODUCTO.NEXTVAL,'LAPTOP',5200);
+COMMIT;
+
+-- CLIENTE
+
+
+INSERT INTO CLIENTE(IDCLIENTE,NOMBRE) VALUES(SQ_CLIENTE.NEXTVAL,'GUSTAVO CORONEL');
+INSERT INTO CLIENTE(IDCLIENTE,NOMBRE) VALUES(SQ_CLIENTE.NEXTVAL,'PEDRO VARGAS');
+COMMIT;
+
+-- VENTAS
+
+INSERT INTO VENTA(IDVENTA,IDPRODUCTO,IDCLIENTE,FECHA,PRECIO,CANTIDAD,SUBTOTAL,IMPUESTO,TOTAL)
+VALUES(SQ_VENTA.NEXTVAL,1001,1001,SYSDATE - 10,0,6,0,0,0);
+
+INSERT INTO VENTA(IDVENTA,IDPRODUCTO,IDCLIENTE,FECHA,PRECIO,CANTIDAD,SUBTOTAL,IMPUESTO,TOTAL)
+VALUES(SQ_VENTA.NEXTVAL,1001,1002,SYSDATE - 9,0,5,0,0,0);
+
+INSERT INTO VENTA(IDVENTA,IDPRODUCTO,IDCLIENTE,FECHA,PRECIO,CANTIDAD,SUBTOTAL,IMPUESTO,TOTAL)
+VALUES(SQ_VENTA.NEXTVAL,1002,1002,SYSDATE - 5,0,8,0,0,0);
+
+INSERT INTO VENTA(IDVENTA,IDPRODUCTO,IDCLIENTE,FECHA,PRECIO,CANTIDAD,SUBTOTAL,IMPUESTO,TOTAL)
+VALUES(SQ_VENTA.NEXTVAL,1002,1002,SYSDATE - 3,0,7,0,0,0);
+
+COMMIT;
+
+
+-- Actualizar datos
+
+update venta 
+set precio = (select p.precio from producto p where p.idproducto = venta.idproducto);
+commit;
+
+update venta set total = precio * cantidad;
+commit;
+
+
+update venta set subtotal = total / 1.18;
+commit;
+
+update venta set impuesto = total - subtotal;
+commit;
+
+
+
+
+   
